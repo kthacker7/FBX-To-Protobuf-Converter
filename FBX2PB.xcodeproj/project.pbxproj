@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30B5C04A1F028EC300A6399F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B5C0491F028EC300A6399F /* main.m */; };
+		30B5C04A1F028EC300A6399F /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30B5C0491F028EC300A6399F /* main.mm */; };
+		30B5C0521F028F0600A6399F /* runner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30B5C0511F028F0600A6399F /* runner.mm */; };
+		30B5C0551F028F5600A6399F /* VerTexCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B5C0541F028F5600A6399F /* VerTexCount.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +26,14 @@
 
 /* Begin PBXFileReference section */
 		30B5C0461F028EC300A6399F /* FBX2PB */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FBX2PB; sourceTree = BUILT_PRODUCTS_DIR; };
-		30B5C0491F028EC300A6399F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		30B5C0491F028EC300A6399F /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		30B5C0501F028EE800A6399F /* runner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = runner.h; sourceTree = "<group>"; };
+		30B5C0511F028F0600A6399F /* runner.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = runner.mm; sourceTree = "<group>"; };
+		30B5C0531F028F3C00A6399F /* VerTexCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerTexCount.h; sourceTree = "<group>"; };
+		30B5C0541F028F5600A6399F /* VerTexCount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VerTexCount.m; sourceTree = "<group>"; };
+		30B5C0571F028FDF00A6399F /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
+		30B5C0581F028FDF00A6399F /* libiconv.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.tbd; path = usr/lib/libiconv.2.tbd; sourceTree = SDKROOT; };
+		30B5C0591F028FDF00A6399F /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +52,7 @@
 			children = (
 				30B5C0481F028EC300A6399F /* FBX2PB */,
 				30B5C0471F028EC300A6399F /* Products */,
+				30B5C0561F028FDF00A6399F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +67,23 @@
 		30B5C0481F028EC300A6399F /* FBX2PB */ = {
 			isa = PBXGroup;
 			children = (
-				30B5C0491F028EC300A6399F /* main.m */,
+				30B5C0491F028EC300A6399F /* main.mm */,
+				30B5C0501F028EE800A6399F /* runner.h */,
+				30B5C0511F028F0600A6399F /* runner.mm */,
+				30B5C0531F028F3C00A6399F /* VerTexCount.h */,
+				30B5C0541F028F5600A6399F /* VerTexCount.m */,
 			);
 			path = FBX2PB;
+			sourceTree = "<group>";
+		};
+		30B5C0561F028FDF00A6399F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30B5C0571F028FDF00A6399F /* libiconv.2.4.0.tbd */,
+				30B5C0581F028FDF00A6399F /* libiconv.2.tbd */,
+				30B5C0591F028FDF00A6399F /* libiconv.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30B5C04A1F028EC300A6399F /* main.m in Sources */,
+				30B5C04A1F028EC300A6399F /* main.mm in Sources */,
+				30B5C0521F028F0600A6399F /* runner.mm in Sources */,
+				30B5C0551F028F5600A6399F /* VerTexCount.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,16 +253,31 @@
 		30B5C04E1F028EC300A6399F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				DEVELOPMENT_TEAM = 8UB24XC54S;
+				HEADER_SEARCH_PATHS = "/Applications/Autodesk/FBX\\ SDK/2018.1.1/lib/clang/debug/libfbxsdk.dylib";
+				ONLY_ACTIVE_ARCH = NO;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-ObjC",
+					"\"/Applications/Autodesk/FBX\\ SDK/2018.1.1/lib/clang/debug/libfbxsdk.a\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Applications/Autodesk/FBX\\ SDK/2018.1.1/include";
 			};
 			name = Debug;
 		};
 		30B5C04F1F028EC300A6399F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				DEVELOPMENT_TEAM = 8UB24XC54S;
+				HEADER_SEARCH_PATHS = "/Applications/Autodesk/FBX\\ SDK/2018.1.1/lib/clang/debug/libfbxsdk.dylib";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-ObjC",
+					"\"/Applications/Autodesk/FBX\\ SDK/2018.1.1/lib/clang/release/libfbxsdk.a\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Applications/Autodesk/FBX\\ SDK/2018.1.1/include";
 			};
 			name = Release;
 		};

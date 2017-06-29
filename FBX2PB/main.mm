@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Runner.h"
 int main(int argc, const char * argv[]) {
 	@autoreleasepool {
-	    // insert code here...
-	    NSLog(@"Hello, World!");
+		// insert code here...
+		Runner *r = [[Runner alloc] init];
+		[r run];
+		NSLog(@"Hello, World!");
 	}
 	return 0;
 }
+
